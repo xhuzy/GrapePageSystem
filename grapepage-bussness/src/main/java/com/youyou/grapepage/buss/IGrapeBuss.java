@@ -1,5 +1,10 @@
 package com.youyou.grapepage.buss;
 
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+
 /*
  * 页面抓取业务逻辑接口
  * 
@@ -7,12 +12,28 @@ package com.youyou.grapepage.buss;
 public interface IGrapeBuss {
 
 	/**
-	 * 抓取指定页面的信息
+	 * request page by method of get
 	 * 
-	 * @param url
-	 *            页面地址
-	 * @return 页面html代码
+	 * @param url   
+	 *               the address of page
+	 * @param param  
+	 *                the data that we want to send to web
+	 * @return   
+	 *                the page context
+	 * @throws UnsupportedEncodingException 
 	 */
-	String grapeByUrl(String url,String param);
+	String grapeByGet(String url, List<NameValuePair> param);
+
+	/**
+	 * request page by method of post
+	 * 
+	 * @param url   
+	 *               the address of page
+	 * @param param  
+	 *                the data that we want to send to web
+	 * @return   
+	 *                the page context
+	 */
+	String grapeByPost(String url, List<NameValuePair> param);
 
 }
