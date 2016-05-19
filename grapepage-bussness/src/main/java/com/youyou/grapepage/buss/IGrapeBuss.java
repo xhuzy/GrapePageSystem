@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 
 /*
  * 页面抓取业务逻辑接口
@@ -35,5 +36,20 @@ public interface IGrapeBuss {
 	 *                the page context
 	 */
 	String grapeByPost(String url, List<NameValuePair> param);
+	
+	
+	/**
+	 * 
+	 * 登录
+	 * @param url
+	 *            web url
+	 * @param param
+	 * 
+	 *           param
+	 * @return
+	 *          cookie info
+	 */
+	HttpClient login(String url,List<NameValuePair> param);
+	
 
 }
