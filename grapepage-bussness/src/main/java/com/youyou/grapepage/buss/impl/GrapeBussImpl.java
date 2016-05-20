@@ -41,28 +41,28 @@ public class GrapeBussImpl implements IGrapeBuss {
 		String result = "";
 		// 创建默认的httpClient实例.
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		StringBuilder builder = new StringBuilder();
-		if (param != null && param.size() > 0) {
-			//// 构造请求参数
-			builder.append("?");
-			try {
-				for (NameValuePair nvpair : param) {
-
-					builder.append(URLEncoder.encode(nvpair.getName(), "UTF-8"));
-					builder.append("=");
-					builder.append(URLEncoder.encode(nvpair.getValue(), "UTF-8"));
-					builder.append("&");
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			builder.setLength(builder.length() - 1);
-		}
-
-		builder.insert(0, url);
+		// StringBuilder builder = new StringBuilder();
+		// if (param != null && param.size() > 0) {
+		// //// 构造请求参数
+		// builder.append("?");
+		// try {
+		// for (NameValuePair nvpair : param) {
+		//
+		// builder.append(URLEncoder.encode(nvpair.getName(), "UTF-8"));
+		// builder.append("=");
+		// builder.append(URLEncoder.encode(nvpair.getValue(), "UTF-8"));
+		// builder.append("&");
+		// }
+		// } catch (Exception ex) {
+		// ex.printStackTrace();
+		// }
+		// builder.setLength(builder.length() - 1);
+		// }
+		//
+		// builder.insert(0, url);
 
 		// 创建httpGet
-		HttpGet httpget = new HttpGet(builder.toString());
+		HttpGet httpget = new HttpGet(url);
 		//// httpget.setHeader("Content-Encoding", "gzip");
 		try {
 
@@ -72,7 +72,7 @@ public class GrapeBussImpl implements IGrapeBuss {
 				//// String
 				//// contentType=response.getHeaders("Content-Encoding")[0].toString();
 				if (entity != null) {
-					result = EntityUtils.toString(entity, "UTF-8");
+					result = EntityUtils.toString(entity,"utf-8");
 
 				}
 			} finally {
