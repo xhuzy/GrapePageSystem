@@ -9,5 +9,5 @@ import com.youyou.grapepage.model.FundInfo;
  *
  */
 public interface IGetFundInfoLogic {
-	FundInfo GetFundInfo(String fundCode);
+	int GetFundInfo(String fundCode);
 }

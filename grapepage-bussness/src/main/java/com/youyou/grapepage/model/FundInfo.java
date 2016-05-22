@@ -1,6 +1,7 @@
 package com.youyou.grapepage.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * fundInfo
@@ -11,11 +12,11 @@ import java.util.Calendar;
 public class FundInfo {
 	private String fundName;
 	private String fundCode;
-	private String valuationDate;
+	private Date valuationDate;
 	private double unitValuation;
 	private double nowValuation;
 	private double valuationIncres;
-	private String valuationTime;
+	private Date valuationTime;
 
 	/**
 	 * 获取基金名称
@@ -58,7 +59,7 @@ public class FundInfo {
 	 * 
 	 * @return
 	 */
-	public String getValuationDate() {
+	public Date getValuationDate() {
 		return valuationDate;
 	}
 
@@ -67,7 +68,7 @@ public class FundInfo {
 	 * 
 	 * @param valuationDate
 	 */
-	public void setValuationDate(String valuationDate) {
+	public void setValuationDate(Date valuationDate) {
 		this.valuationDate = valuationDate;
 	}
 
@@ -130,7 +131,7 @@ public class FundInfo {
 	 * 
 	 * @return
 	 */
-	public String getValuationTime() {
+	public Date getValuationTime() {
 		return valuationTime;
 	}
 
@@ -139,7 +140,7 @@ public class FundInfo {
 	 * 
 	 * @param valuationTime
 	 */
-	public void setValuationTime(String valuationTime) {
+	public void setValuationTime(Date valuationTime) {
 		this.valuationTime = valuationTime;
 	}
 
