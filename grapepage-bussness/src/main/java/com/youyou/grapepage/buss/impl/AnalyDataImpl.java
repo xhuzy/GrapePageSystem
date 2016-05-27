@@ -7,11 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.youyou.grapepage.buss.IAnalyData;
 
+/**
+ * 
+ * 从网站抓取的数据中获取需要的数据
+ * 
+ * @author ziang
+ *
+ */
 @Service("analyDataImpl")
 public class AnalyDataImpl implements IAnalyData {
 
 	@Override
-	public String AnalyToJson(String originHtml) {
+	public String analyToJson(String originHtml) {
 		String patternStr = "\\{.*\\}";
 
 		Pattern pattern = Pattern.compile(patternStr);

@@ -14,5 +14,5 @@ public interface IAnalyData {
 	 * @param originHtml
 	 * @return
 	 */
-	String AnalyToJson(String originHtml);
+	String analyToJson(String originHtml);
 }

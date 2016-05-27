@@ -1,6 +1,6 @@
 package com.youyou.grapepage.buss;
 
-import com.youyou.grapepage.model.FundInfo;
+import com.youyou.grapepage.model.DMFundInfo;
 
 /**
  * 构造基金信息对象
@@ -10,5 +10,5 @@ import com.youyou.grapepage.model.FundInfo;
  */
 public interface IConstractModel {
 
-	FundInfo GetFundInfo(String jsonStr);
+	DMFundInfo getFundInfo(String jsonStr);
 }

@@ -1,25 +1,26 @@
 package com.youyou.grapepage.buss.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.youyou.grapepage.buss.IConstractModel;
-import com.youyou.grapepage.model.FundInfo;
+import com.youyou.grapepage.model.DMFundInfo;
 
 @Service("constractModel")
 public class ConstractModelImpl implements IConstractModel {
 
 	@Override
-	public FundInfo GetFundInfo(String jsonStr) {
+	public DMFundInfo getFundInfo(String jsonStr) {
 		try {
 			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-			com.youyou.grapepage.vmodel.FundInfo vfundinfo = gson.fromJson(jsonStr,
-					com.youyou.grapepage.vmodel.FundInfo.class);
+			com.youyou.grapepage.vmodel.VMFundInfo vfundinfo = gson.fromJson(jsonStr,
+					com.youyou.grapepage.vmodel.VMFundInfo.class);
 
-			FundInfo result = new FundInfo();
+			DMFundInfo result = new DMFundInfo();
 			SimpleDateFormat simpleFormar = new SimpleDateFormat("yyyy-MM-dd");
 			SimpleDateFormat simpleFormar2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			result.setFundCode(vfundinfo.getFundcode());
