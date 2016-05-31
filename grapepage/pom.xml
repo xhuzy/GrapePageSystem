@@ -67,13 +67,19 @@
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
 			<plugins>
-			
+
 				<!-- 编译插件，指定项目使用jdk1.8 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -83,7 +89,7 @@
 						<target>1.8</target>
 					</configuration>
 				</plugin>
-				
+
 				<!-- 导出依赖包到文件夹插件 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>

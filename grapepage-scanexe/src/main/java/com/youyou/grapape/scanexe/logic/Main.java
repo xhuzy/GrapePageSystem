@@ -25,25 +25,36 @@ public class Main {
 
 			while (true) {
 				try {
-					for (String fund : fundCode) {
-						if (null == fund || fund.isEmpty()) {
-							continue;
+					for(int i=0;i<fundCode.length;i++){
+						try{
+							dealLogic.dealEachFund(fundCode[i]);
+							Thread.sleep(100);
+							
+						}catch(Exception ex){
+							ex.printStackTrace();
 						}
-
-						Thread thread = new Thread(new Runnable() {
-
-							@Override
-							public void run() {
-								dealLogic.dealEachFund(fund);
-
-							}
-						});
-
-						thread.start();
-
 					}
-
-					Thread.sleep(5*60 * 1000);
+					
+					
+//					for (String fund : fundCode) {
+//						if (null == fund || fund.isEmpty()) {
+//							continue;
+//						}
+//
+//						Thread thread = new Thread(new Runnable() {
+//
+//							@Override
+//							public void run() {
+//								dealLogic.dealEachFund(fund);
+//
+//							}
+//						});
+//
+//						thread.start();
+//
+//					}
+//
+				Thread.sleep(1*60 * 1000);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
