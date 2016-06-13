@@ -1,5 +1,6 @@
 package com.youyou.grapepage.buss.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,22 +48,37 @@ public class FundInfooperatorImpl implements IFundInfoOperator {
 
 	@Override
 	public boolean saveFundInfo(DMFundInfo fundInfo) {
-		fundInfo.setTableName("nowfundinfo");
+		SimpleDateFormat simpformat = new SimpleDateFormat("yyyyMMdd");
+		Date date = new Date();
+		fundInfo.setTableName("nowfundinfo" + simpformat.format(date));
 		return this.fundDao.addFundInfo(fundInfo) > 0;
 	}
 
 	@Override
-	public List<DMFundInfo> getFundInfoByFundCode(String fundCode) {
-		String tableName = "nowfundinfo";
+	public List<DMFundInfo> getTopOrLowFundInfo(Date date, int selectCount, int orderType) {
 
-		return this.fundDao.getAllFundInfo(tableName, fundCode);
+		SimpleDateFormat simformat = new SimpleDateFormat("yyyyMMdd");
+		String tableName = "nowfundinfo" + simformat.format(date);
+
+		String orderTypedesc = "asc";
+		if (orderType == 0) {
+			orderTypedesc = "desc";
+		}
+
+		return this.fundDao.selectToporlowFundInfo(tableName, selectCount, orderTypedesc);
 	}
 
 	@Override
-	public List<DMFundInfo> getFundInfoByFundCodeAndTime(String fundCode, Date startTime, Date endTime) {
-		String tableName = "nowfundinfo";
-		
-		return this.fundDao.getFundInfoByAddTime(tableName, fundCode, startTime, endTime);
+	public List<DMFundInfo> getFundinfoByCodeAndName(Date date, String code, String name) {
+		SimpleDateFormat simformat = new SimpleDateFormat("yyyyMMdd");
+		String tableName = "nowfundinfo" + simformat.format(date);
+		if (name == "" || name.isEmpty()) {
+			name = "%%";
+		} else {
+			name = "%" + name + "%";
+		}
+
+		return this.fundDao.selectSpecifyFundInfo(tableName, code, name);
 	}
 
 }

@@ -19,13 +19,25 @@
 
 	<select id="getAllFundInfo" resultMap="fundInfoResultMap">
 		select * from
-		${tableName} where
+		${tableName}
+		where
 		code=#{fundCode}
 	</select>
 
 	<select id="getFundInfoByAddTime" resultMap="fundInfoResultMap">
 		select * from ${tableName}
 		where code=#{fundCode} and <![CDATA[ nowvaluetime>=#{startTime} and nowvaluetime<=#{endTime}]]>
+	</select>
+
+	<select id="selectToporlowFundInfo" resultMap="fundInfoResultMap">
+		SELECT * from ${tableName} where id in(
+		SELECT max(id) FROM
+		${tableName} where <![CDATA[ nowvaluetime>'2016-05-31']]>
+		GROUP BY `code`) ORDER by incres ${orderType} LIMIT ${limit}
+	</select>
+
+	<select id="selectSpecifyFundInfo" resultMap="fundInfoResultMap">
+		select * from ${tableName} where code=#{code} and name like #{name}
 	</select>
 
 	<!--通过<resultMap>映射实体类属性名和表的字段名对应关系 -->

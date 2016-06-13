@@ -31,41 +31,5 @@ public class TestConstractModelImpl {
 		Assert.assertEquals(true, result);
 
 	}
-	
-	@Test
-	public void testGetFundInfoByCode() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("config/spring/beans.xml");
-		IFundInfoOperator buss = (IFundInfoOperator) context.getBean("GetFundInfoLogic");
-		List<DMFundInfo> lstFundInfo=buss.getFundInfoByFundCode("710001");
-		boolean result=lstFundInfo.size()>0;
-		Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-		
-		for(DMFundInfo fundinfo :lstFundInfo){
-			System.out.println(gson.toJson(fundinfo));
-		}
-
-		Assert.assertEquals(true, result);
-
-	}
-	
-	@Test
-	public void getFundInfoByCodeAndTime() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("config/spring/beans.xml");
-		IFundInfoOperator buss = (IFundInfoOperator) context.getBean("GetFundInfoLogic");
-		
-		Calendar calendar=Calendar.getInstance();
-		calendar.set(2016, 4, 27, 10, 5, 0);
-		Date startTime=calendar.getTime();
-		Date endTime=new Date();
-		List<DMFundInfo> lstFundInfo=buss.getFundInfoByFundCodeAndTime("710001", startTime, endTime);
-		boolean result=lstFundInfo.size()>1;
-		Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-		
-		for(DMFundInfo fundinfo :lstFundInfo){
-			System.out.println(gson.toJson(fundinfo));
-		}
-
-		Assert.assertEquals(true, result);
-	}
 
 }

@@ -15,10 +15,33 @@ import com.youyou.grapepage.model.DMFundInfo;
  *
  */
 public interface IFundInfoDao {
+	/**
+	 * 向数据库中添加数据
+	 * 
+	 * @param fundInfo
+	 * @return
+	 */
+	int addFundInfo(DMFundInfo fundInfo);
 
-	public int addFundInfo(DMFundInfo fundInfo);
+	/**
+	 * 获取某天收益最高或者最低的前多少基金
+	 * 
+	 * @param tableName
+	 * @param limit
+	 * @param orderType
+	 * @return
+	 */
+	List<DMFundInfo> selectToporlowFundInfo(@Param("tableName") String tableName, @Param("limit") int limit,
+			@Param("orderType") String orderType);
 
-	public List<DMFundInfo> getAllFundInfo(@Param("tableName") String tabeName, @Param("fundCode") String fundCode);
-
-	public List<DMFundInfo> getFundInfoByAddTime(@Param("tableName")String tableName, @Param("fundCode")String fundCode, @Param("startTime")Date startTime, @Param("endTime")Date endTime);
+	/**
+	 * 查询某个基金的信息
+	 * 
+	 * @param tableName
+	 * @param code
+	 * @param name
+	 * @return
+	 */
+	List<DMFundInfo> selectSpecifyFundInfo(@Param("tableName") String tableName, @Param("code") String code,
+			@Param("name") String name);
 }

@@ -18,7 +18,7 @@ public class EachFundDealLogic {
 		DMFundInfo fundInfo = this.fundlogic.getFundInfo(fundCode);
 		boolean resutl = this.fundlogic.saveFundInfo(fundInfo);
 
-		System.out.println("获取并保存基金代码为：" + fundCode + "，的基金");
+		System.out.println("Get and save fund fund code is ：" + fundCode);
 
 	}
 
