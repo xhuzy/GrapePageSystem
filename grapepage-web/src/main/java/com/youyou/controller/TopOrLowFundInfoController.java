@@ -24,7 +24,6 @@ import com.youyou.grapepage.model.DMFundInfo;
 /**
  * Servlet implementation class TopOrLowFundInfoController
  */
-@Controller("GetTopFundController")
 public class TopOrLowFundInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,35 +50,34 @@ public class TopOrLowFundInfoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			// TODO Auto-generated method stub
-			String dateTime = request.getParameter("datetime");
-			String totalCount = request.getParameter("showtotal");
-			String sortType = request.getParameter("sortType");
+		// // TODO Auto-generated method stub
+		// String dateTime = request.getParameter("datetime");
+		// String totalCount = request.getParameter("showtotal");
+		// String sortType = request.getParameter("sortType");
+		//
+		// SimpleDateFormat simFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//
+		// Date date = simFormat.parse(dateTime);
+		// int count = Integer.parseInt(totalCount);
+		// int type = Integer.parseInt(sortType);
+		//
+		// ApplicationContext context = new
+		// ClassPathXmlApplicationContext("beansconfig.xml");
+		//
+		// IFundInfoOperator operater = (IFundInfoOperator)
+		// context.getBean("GetFundInfoLogic");
+		//
+		// List<DMFundInfo> lstFundInfo = operater.getTopOrLowFundInfo(date,
+		// count, type);
+		//
+		// request.setAttribute("fundInfo", lstFundInfo);
+		// request.setAttribute("datetime", simFormat.format(date));
+		// request.setAttribute("showtotal", count);
+		//
+		// RequestDispatcher dispatcher =
+		// request.getRequestDispatcher("/WEB-INF/jsp/toporlowfund.jsp");
+		// dispatcher.forward(request, response);
 
-			SimpleDateFormat simFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-			Date date = simFormat.parse(dateTime);
-			int count = Integer.parseInt(totalCount);
-			int type = Integer.parseInt(sortType);
-
-			ApplicationContext context = new ClassPathXmlApplicationContext("beansconfig.xml");
-
-			IFundInfoOperator operater = (IFundInfoOperator) context.getBean("GetFundInfoLogic");
-
-			List<DMFundInfo> lstFundInfo = operater.getTopOrLowFundInfo(date, count, type);
-
-			request.setAttribute("fundInfo", lstFundInfo);
-			request.setAttribute("datetime", simFormat.format(date));
-			request.setAttribute("showtotal", count);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/toporlowfund.jsp");
-			dispatcher.forward(request, response);
-
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }

@@ -34,9 +34,9 @@ a {
 
 .line {
 	width: 100%;
-	background-image: url(menu/images/left/line_bg.png);
+	//background-image: url(menu/images/left/line_bg.png);
 	background-repeat: repeat-x;
-	background-image: url(menu/images/left/line_bg.png);
+	//background-image: url(menu/images/left/line_bg.png);
 	background-repeat: repeat-x;
 }
 

@@ -11,13 +11,13 @@
 	<%@include file="../../menu/menu.jsp"%>
 	<div class="main-right">
 		<form method="post"
-			action="${pageContext.request.contextPath}/TopOrLowFundInfoController">
+			action="${pageContext.request.contextPath}/fundquery/toporlow.do">
 			<table width="90%" cellpadding="0" cellspacing="0">
 				<tr>
 					<td>时间</td>
 					<td><input type="text" name="datetime" value="${datetime}" /></td>
 					<td>显示调试</td>
-					<td><input type="text" name="showtotal" value="${showtotal }" /></td>
+					<td><input type="text" name="showtotal" value="${showtotal}" /></td>
 					<td>排序规则</td>
 					<td><select name="sortType">
 							<option value="0">倒序</option>
@@ -29,8 +29,8 @@
 					<td><input type="reset" /></td>
 				</tr>
 			</table>
-
-			<table  width="100%">
+			<span>${pageContext.request.contextPath}</span>
+			<table width="100%">
 				<tr>
 					<td>id</td>
 					<td>name</td>
@@ -56,9 +56,6 @@
 				</c:forEach>
 
 			</table>
-
-
-
 		</form>
 
 
